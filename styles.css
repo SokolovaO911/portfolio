@@ -97,6 +97,7 @@ img { display: block; max-width: 100%; }
   display: grid; grid-template-columns: 21.8vw 22.4vw 1fr;
 }
 .project a { display: block; }
+.project__logoBox { display: block; }
 .project__logo { height: auto; transition: transform .2s ease; }
 .project__logo--foster { width: 21.1vw; margin-left: -0.35vw; }
 .project__logo--spassim { width: 10.2vw; margin-left: 4.5vw; margin-top: -0.7vw; }
@@ -108,34 +109,59 @@ img { display: block; max-width: 100%; }
 .project a:hover .project__logo { transform: translateY(-3px); }
 
 /* ---------- Tablet / mobile ---------- */
+/* One grid: --g is the side gutter. Logo, nav, squiggle, headline, buttons
+   and project texts all start on the left gutter line; the photo group and
+   the "Get in Touch" button end on the right one. */
 .br-d { display: inline; }
 @media (max-width: 900px) {
+  :root { --g: clamp(24px, 8.8vw, 48px); --squig: 34px; }
   .br-d { display: none; }
-  .site-header { height: auto; padding: 20px 20px 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; row-gap: 16px; }
+  main { overflow-x: clip; }
+
+  /* Header */
+  .site-header {
+    height: auto; padding: 24px var(--g) 0;
+    display: grid; grid-template-columns: 1fr auto; align-items: center; row-gap: 20px;
+  }
   .logo, .nav { position: static; }
   .site-header .btn--brush { position: relative; left: auto; top: auto; }
   .logo { font-size: 48px; }
-  .nav { order: 3; width: 100%; justify-content: space-between; font-size: 17px; gap: 12px; }
-  .btn, .btn--text { font-size: 17px; }
-  .btn--brush, .site-header .btn--brush { width: 170px; height: 52px; }
-  .btn--text { height: 52px; }
+  .nav { grid-column: 1 / -1; grid-row: 2; justify-content: flex-start; gap: 28px; font-size: 20px; }
+  .btn, .btn--text { font-size: 18px; }
+  .btn--brush, .site-header .btn--brush { width: 176px; height: 56px; justify-self: end; }
+  .btn--text { height: 56px; }
 
-  .hero { flex-direction: column; height: auto; padding: 32px 20px 0 44px; }
-  .hero__photo { width: min(300px, 70vw); }
-  .hero__img { height: auto; aspect-ratio: 364 / 480; }
-  .hero__squiggle { left: -34px; top: -4px; height: 102%; }
+  /* Hero */
+  .hero { display: block; height: auto; padding: 28px var(--g) 0; }
+  .hero__photo { width: auto; margin-left: var(--squig); }
+  .hero__img { width: 100%; height: auto; aspect-ratio: 364 / 480; }
+  .hero__squiggle { left: calc(var(--squig) * -1); top: 0; height: 100%; width: auto; }
   .hero__text { margin: 28px 0 0; }
-  .hero__name { font-size: 16px; }
+  .hero__name { font-size: 18px; }
   .hero__title { margin-top: 24px; font-size: clamp(30px, 8.5vw, 46px); }
-  .hero__lead { margin-top: 22px; font-size: 17px; }
-  .hero__actions { margin: 24px 0 0; gap: 28px; flex-wrap: wrap; }
+  .hero__lead { margin-top: 20px; font-size: 18px; }
+  .hero__actions { margin: 20px 0 0; gap: 28px; flex-wrap: nowrap; }
+  .hero__actions .btn--brush { width: 176px; }
 
-  .projects { overflow: visible; margin: 120px 0 0; height: auto; padding: 150px 20px 48px; }
-  .projects__hand { width: 230px; left: -20px; top: -100px; }
-  .projects__list { position: static; display: grid; grid-template-columns: 1fr; row-gap: 36px; }
-  .project__logo--foster { width: min(300px, 80vw); margin: 0; }
-  .project__logo--spassim { width: 140px; margin: 0; }
-  .project__logo--mood { width: min(320px, 85vw); margin: 0; }
-  .project p, .project--foster p, .project--spassim p, .project--mood p { margin-top: 14px; font-size: 17px; max-width: 24em; }
+  /* Projects: the hand is mirrored so it points left at "View Projects" */
+  .projects {
+    margin: 84px 0 0; height: auto;
+    padding: 150px var(--g) 56px;
+  }
+  .projects__hand {
+    left: auto; right: 0; bottom: auto;
+    top: -75px; width: 232px;
+    transform: scaleX(-1);
+  }
+  .projects__list { position: static; display: grid; grid-template-columns: 1fr; row-gap: 40px; }
+  .project__logo { height: auto; margin: 0; }
+  .project a { display: flex; flex-direction: column; }
+  .project__logoBox { height: 72px; display: flex; align-items: center; }
+  .project__logo--foster { width: min(252px, 100%); }
+  .project__logo--spassim { width: 126px; }
+  .project__logo--mood { width: min(290px, 100%); }
+  .project p, .project--foster p, .project--spassim p, .project--mood p {
+    margin: 16px 0 0; max-width: 22em; font-size: 18px;
+  }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
