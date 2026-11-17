@@ -50,7 +50,7 @@ img { display: block; max-width: 100%; }
 .btn--brush::before {
   content: "";
   position: absolute; inset: 0;
-  background: url("assets/brush.png") center / 100% 100% no-repeat;
+  background: url("assets/brush.png?v=5") center / 100% 100% no-repeat;
   z-index: -1;
   transition: transform .2s ease;
 }
@@ -126,7 +126,7 @@ img { display: block; max-width: 100%; }
   .logo, .nav { position: static; }
   .site-header .btn--brush { position: relative; left: auto; top: auto; }
   .logo { font-size: 48px; }
-  .nav { grid-column: 1 / -1; grid-row: 2; justify-content: flex-start; gap: 28px; font-size: 20px; }
+  .nav { grid-column: 1 / -1; grid-row: 2; justify-content: space-between; gap: 12px; font-size: 20px; }
   .btn, .btn--text { font-size: 18px; }
   .btn--brush, .site-header .btn--brush { width: 176px; height: 56px; justify-self: end; }
   .btn--text { height: 56px; }
@@ -156,7 +156,8 @@ img { display: block; max-width: 100%; }
   .projects__list { position: static; display: grid; grid-template-columns: 1fr; row-gap: 40px; }
   .project__logo { height: auto; margin: 0; }
   .project a { display: flex; flex-direction: column; }
-  .project__logoBox { height: 72px; display: flex; align-items: center; }
+  .project__logoBox { display: block; height: auto; }
+  .project__logoBox img { display: block; }
   .project__logo--foster { width: min(252px, 100%); }
   .project__logo--spassim { width: 126px; }
   .project__logo--mood { width: min(290px, 100%); }
