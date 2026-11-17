@@ -1,0 +1,10 @@
+{
+  "name": "portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Portfolio of Olha Sokolova, Junior UI/UX Designer",
+  "scripts": {
+    "dev": "npx --yes serve . -l 3000",
+    "start": "npx --yes serve . -l 3000"
+  }
+}
