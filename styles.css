@@ -209,9 +209,10 @@ img { display: block; max-width: 100%; }
   }
 
   /* About page */
-  .about { --fw: min(70vw, 318px); display: block; padding: 0 var(--g) 120px; }
+  .about { --fw: min(calc((100vw - 2 * var(--g)) / 1.06), 340px); display: block; padding: 0 var(--g) 120px; }
   .about__clip { top: calc(var(--fw) * -0.122 + 17px); }
-  .about__figure { margin: calc(var(--fw) * 0.21 + 12px) 0 0 auto; }
+  .about__figure { margin: calc(var(--fw) * 0.21 + 12px) auto 0; }
+  .about__photo { transform-origin: 50% 50%; }
   .about__text { width: auto; margin-top: 40px; }
   .about__title { margin-bottom: 20px; font-size: clamp(30px, 8.5vw, 46px); }
   .about__text p { margin-bottom: 18px; font-size: 18px; line-height: 1.5; }
