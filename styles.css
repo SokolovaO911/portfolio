@@ -50,7 +50,7 @@ img { display: block; max-width: 100%; }
 .btn--brush::before {
   content: "";
   position: absolute; inset: 0;
-  background: url("assets/brush.png?v=5") center / 100% 100% no-repeat;
+  background: url("assets/brush.png?v=6") center / 100% 100% no-repeat;
   z-index: -1;
   transition: transform .2s ease;
 }
@@ -108,6 +108,36 @@ img { display: block; max-width: 100%; }
 .project--mood p { margin-top: 4.6vw; max-width: 21vw; }
 .project a:hover .project__logo { transform: translateY(-3px); }
 
+/* ---------- About page ---------- */
+/* Text column starts on the same line as the hero photo on the home page (9.9vw);
+   the photo ends on the right edge of the "Get in Touch" button (87.7vw). */
+.about {
+  --fw: 27.6vw;                       /* photo width */
+  position: relative;
+  display: flex; justify-content: space-between; align-items: flex-start;
+  flex-direction: row-reverse;
+  padding: 5.5vw 12.3vw calc(8vw + 70px) 9.9vw;
+}
+.about__figure {
+  position: relative; flex: none; width: var(--fw);
+  margin: calc(var(--fw) * 0.147) 0 0;
+}
+.about__photo { display: block; width: 100%; height: auto; transform: rotate(2.5deg); transform-origin: 50% 0; }
+.about__clip {
+  position: absolute; z-index: 2;
+  width: calc(var(--fw) * 0.217); height: auto;
+  left: 70%; top: calc(var(--fw) * -0.122 + 1vw);
+  pointer-events: none;
+}
+.about__text { width: 42vw; }
+.about__title {
+  margin: 0 0 2.6vw;
+  font-weight: 400; font-size: 3.333vw; line-height: 1.2;
+}
+.about__text p { margin: 0 0 1.6vw; font-size: 1.389vw; font-weight: 400; line-height: 1.45; }
+.about__text p { text-wrap: pretty; }
+.about__text em { font-style: normal; color: var(--yellow); }
+
 /* ---------- Tablet / mobile ---------- */
 /* One grid: --g is the side gutter. Logo, nav, squiggle, headline, buttons
    and project texts all start on the left gutter line; the photo group and
@@ -164,5 +194,13 @@ img { display: block; max-width: 100%; }
   .project p, .project--foster p, .project--spassim p, .project--mood p {
     margin: 16px 0 0; max-width: 22em; font-size: 18px;
   }
+
+  /* About page */
+  .about { --fw: min(70vw, 318px); display: block; padding: 0 var(--g) 120px; }
+  .about__clip { top: calc(var(--fw) * -0.122 + 17px); }
+  .about__figure { margin: calc(var(--fw) * 0.21 + 12px) 0 0 auto; }
+  .about__text { width: auto; margin-top: 40px; }
+  .about__title { margin-bottom: 20px; font-size: clamp(30px, 8.5vw, 46px); }
+  .about__text p { margin-bottom: 18px; font-size: 18px; line-height: 1.5; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
