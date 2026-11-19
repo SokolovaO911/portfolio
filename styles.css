@@ -143,6 +143,19 @@ img { display: block; max-width: 100%; }
    and project texts all start on the left gutter line; the photo group and
    the "Get in Touch" button end on the right one. */
 .br-d { display: inline; }
+/* Contact page */
+.contact { position: relative; overflow-x: clip; padding: 5.5vw 12.3vw calc(8vw + 70px) 9.9vw; }
+.contact__hand { position: absolute; right: -6.3vw; top: 27.6vw; width: 52.2vw; height: auto; pointer-events: none; }
+.contact__title { margin: 0 0 2.6vw; font-weight: 500; font-size: 3.333vw; line-height: 1.2; color: var(--yellow); }
+.contact__lead { margin: 0 0 4vw; width: 46vw; font-size: 1.389vw; line-height: 1.45; text-wrap: pretty; }
+.contact__block { margin: 0 0 3.4vw; }
+.contact__block h2 { margin: 0 0 1vw; font-size: 1.667vw; font-weight: 500; color: var(--white); }
+.contact__mail, .contact__links a { color: var(--yellow); text-decoration: underline; text-underline-offset: .25em; text-decoration-thickness: 1px; }
+.contact__mail { font-size: 2.2vw; }
+.contact__links { margin: 0; padding: 0; list-style: none; font-size: 1.389vw; line-height: 1.8; }
+.contact__links a:hover, .contact__mail:hover { color: var(--white); }
+.btn--wide { width: 24vw; }
+
 @media (max-width: 900px) {
   :root { --g: clamp(24px, 8.8vw, 48px); --squig: 34px; }
   .br-d { display: none; }
@@ -202,5 +215,17 @@ img { display: block; max-width: 100%; }
   .about__text { width: auto; margin-top: 40px; }
   .about__title { margin-bottom: 20px; font-size: clamp(30px, 8.5vw, 46px); }
   .about__text p { margin-bottom: 18px; font-size: 18px; line-height: 1.5; }
+
+  /* Contact page */
+  .contact { display: flex; flex-direction: column; padding: 40px var(--g) 120px; }
+  .contact__hand { position: static; order: 99; align-self: flex-end; width: calc((100% + var(--g) + 36px) * 0.9); max-width: none; height: auto; margin: 8px calc(-1 * var(--g) - 70px) 0 0; }
+  .contact__title { margin-bottom: 20px; font-size: clamp(30px, 8.5vw, 46px); }
+  .contact__lead { width: auto; margin-bottom: 40px; font-size: 18px; line-height: 1.5; }
+  .contact__block { margin-bottom: 36px; }
+  .contact__block h2 { margin-bottom: 12px; font-size: 20px; }
+  .contact__mail { font-size: clamp(20px, 6vw, 26px); overflow-wrap: anywhere; }
+  .contact__links { font-size: 18px; line-height: 1.7; }
+  .contact__links a { overflow-wrap: anywhere; }
+  .btn--brush.btn--wide { width: min(100%, 280px); height: 56px; justify-self: start; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
