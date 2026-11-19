@@ -156,6 +156,23 @@ img { display: block; max-width: 100%; }
 .contact__links a:hover, .contact__mail:hover { color: var(--white); }
 .btn--wide { width: 24vw; }
 
+/* Get in touch page */
+.touch { display: grid; grid-template-columns: 30vw 1fr; grid-template-areas: "photo title" "photo form"; column-gap: 4.5vw; align-items: start; padding: 5.5vw 12.3vw calc(8vw + 70px) 9.9vw; }
+.touch__title { grid-area: title; margin: 0 0 2.6vw; font-size: 3.333vw; font-weight: 500; line-height: 1.1; text-transform: uppercase; }
+.touch__photo { grid-area: photo; position: relative; align-self: stretch; margin: .8vw 0 0; }
+.touch__photo .touch__squiggle { --sl: 30vw; --st: 2.6vw; position: absolute; left: var(--sl); top: calc(var(--st) * -1 + .5vw); height: var(--sl); width: var(--st); transform: rotate(90deg); transform-origin: 0 0; z-index: 2; pointer-events: none; }
+.touch__photo img:first-child { display: block; width: 100%; height: 100%; object-fit: cover; }
+.touch__form { grid-area: form; }
+.field { margin: 0 0 1.5vw; }
+.field label { display: block; margin: 0 0 .7vw; font-size: 1.111vw; font-weight: 500; letter-spacing: .02em; text-transform: uppercase; }
+.field input, .field textarea { display: block; width: 100%; box-sizing: border-box; padding: 1vw 1.3vw; font: inherit; font-size: 1.111vw; color: var(--white); background: rgba(243, 243, 234, .07); border: 1px solid rgba(243, 243, 234, .16); border-radius: 0; }
+.field textarea { min-height: 11vw; resize: vertical; }
+.field input::placeholder, .field textarea::placeholder { color: rgba(243, 243, 234, .55); }
+.field input:focus, .field textarea:focus { outline: 2px solid var(--yellow); outline-offset: 0; }
+.touch__form .btn--wide { margin-top: 1vw; border: 0; background: none; cursor: pointer; font-family: inherit; }
+.touch__note:empty { display: none; }
+.touch__note { min-height: 1.5em; margin: 1vw 0 0; font-size: 1.111vw; color: var(--yellow); }
+
 @media (max-width: 900px) {
   :root { --g: clamp(24px, 8.8vw, 48px); --squig: 34px; }
   .br-d { display: none; }
@@ -228,5 +245,18 @@ img { display: block; max-width: 100%; }
   .contact__links { font-size: 18px; line-height: 1.7; }
   .contact__links a { overflow-wrap: anywhere; }
   .btn--brush.btn--wide { width: min(100%, 280px); height: 56px; justify-self: start; }
+
+  /* Get in touch page */
+  .touch { display: block; padding: 32px var(--g) 120px; }
+  .touch__title { margin-bottom: 40px; font-size: clamp(26px, 7.4vw, 40px); }
+  .touch__photo { width: 72%; margin: 0 0 36px; }
+  .touch__photo img:first-child { height: auto; }
+  .touch__photo .touch__squiggle { --sl: calc((100vw - 2 * var(--g)) * 0.72); --st: 20px; left: var(--sl); top: calc(var(--st) * -1 + 3px); }
+  .field { margin-bottom: 22px; }
+  .field label { margin-bottom: 8px; font-size: 14px; }
+  .field input, .field textarea { padding: 14px 16px; font-size: 16px; }
+  .field textarea { min-height: 150px; }
+  .touch__form .btn--wide { margin-top: 8px; }
+  .touch__note { margin-top: 12px; font-size: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
